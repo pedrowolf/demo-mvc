@@ -46,8 +46,6 @@ public class Endereco extends GenericDomain<Long> {
 	@Column(nullable = false, length = 5)
 	private Integer numero;
 
-	@NotBlank(message = "Preencha o complemento")
-	@Size(min = 3, max = 255, message = "O campo complemento deve ter entre {min} e {max} caracteres")
 	private String complemento;
 
 	public String getLogradouro() {
