@@ -6,6 +6,7 @@ No curso foram apresentados tópicos de entrada para SpringMVC com SpringBoot:
   - Conceitos de ActionBased;
   - Criar controllers para comunicação com as Views;
   - Camada de Persistência utilizando DAOs, porém optei por utilizador o JpaRepository do Spring;
+  - Também optei por usar DataTables na parte das listagens;
   - Tratamento de validação no back end e visualização nas Views;
   
 Curso muito bom para aprender um pouco sobre as diferenças entre ActionBased(Spring) e ComponentBased(JavaEE),
