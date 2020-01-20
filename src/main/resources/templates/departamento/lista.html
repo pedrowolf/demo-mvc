@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+	<section layout:fragment="conteudo" class="layout-content">
+
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Lista de Departamentos</span></li>
+				</ul>
+				<a class="btn btn-primary btn-md" href="/departamentos/cadastrar"
+					role="button"> <span class="oi oi-plus" title="Cadastro"
+					aria-hidden="true"></span> <span>Novo Departamento</span>
+				</a>
+			</div>
+		</nav>
+
+
+		<div th:replace="fragments/alert"></div>
+		<div class="container" id="listagem">
+
+			<div class="table-responsive">
+				<table id="departamentos-table"
+					class="table table-striped table-hover table-sm">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nome</th>
+							<th>Ação</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="d : ${departamentos}">
+							<td th:text="${d.id}">3</td>
+							<td th:text="${d.nome}">Administração</td>
+							<td colspan="2" style="text-align: center;"><a class="btn btn-info btn-sm"
+								th:href="@{/departamentos/editar/{id} (id=${d.id}) }"
+								role="button"> <span class="oi oi-brush" title="Editar"
+									aria-hidden="true"></span>
+							</a>
+								<button th:id="${ 'btn_departamentos/excluir/' + d.id}"
+									type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+									data-target="#modal-confirm">
+									<span class="oi oi-circle-x" title="Exclusão desabilitada"
+										aria-hidden="true"></span>
+								</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div th:replace="fragments/modal :: modal-confirm"></div>
+	</section>
+
+	<script layout:fragment="jsPage">
+		$(document).ready(function() {
+			$('#departamentos-table').DataTable({
+				"columnDefs" : [ {
+					"orderable" : false,
+					"targets" : [ 2 ]
+				} ],
+				destroy : true,
+				responsive : true,
+				language : {
+					paginate : {
+						previous : '<',
+                        next:     '>'
+					},
+					"lengthMenu" : "Mostrando _MENU_ registros por página",
+					"zeroRecords" : "Nenhum Registro Encontrado!",
+					"info" : "Página _PAGE_ de _PAGES_",
+					"infoEmpty" : "Nenhum Registro Disponível!",
+					"infoFiltered" : "(filtrando de _MAX_ registros)",
+					"search" : "Buscar: "
+				}
+			});
+		});
+	</script>
+
+</body>
+</html>
