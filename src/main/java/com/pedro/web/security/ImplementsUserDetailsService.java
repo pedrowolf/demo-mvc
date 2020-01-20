@@ -1,5 +1,7 @@
 package com.pedro.web.security;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,6 +12,7 @@ import com.pedro.domain.Usuario;
 import com.pedro.repository.UsuarioRepository;
 
 @Repository
+@Transactional
 public class ImplementsUserDetailsService  implements UserDetailsService{
 
 	@Autowired

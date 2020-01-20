@@ -34,7 +34,7 @@
 					</a></li>
 				</ul>
 
-				<ul class="nav nav-pills">
+				<ul class="nav nav-pills" sec:authorize="hasRole('ROLE_ADMIN')">
 					<li class="nav-item"><span class="nav-link active">Funcionários</span></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/funcionarios/cadastrar"> <i class="oi oi-plus"></i> <span>Cadastrar

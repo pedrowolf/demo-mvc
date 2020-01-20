@@ -1,8 +1,12 @@
 package com.pedro.domain;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +21,9 @@ public class Usuario extends GenericDomain<Long> implements UserDetails{
 	private String nomeCompleto;
 	
 	private String senha;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	private List<UsuarioRole> roles;
 
 	public String getLogin() {
 		return login;
@@ -41,11 +48,19 @@ public class Usuario extends GenericDomain<Long> implements UserDetails{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public void setRoles(List<UsuarioRole> roles) {
+		this.roles = roles;
+	}
+	
+	public List<UsuarioRole> getRoles() {
+		return roles;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.roles;
 	}
 
 	@Override
