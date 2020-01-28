@@ -19,6 +19,9 @@ public class CargoService implements MyServiceInterface<Cargo, Long> {
 	@Override
 	public void salvar(Cargo e) {
 		// TODO Auto-generated method stub
+		if(e.getId()!=null) {
+			e.setVersion(loadById(e.getId()).getVersion());
+		}
 		repo.saveAndFlush(e);
 	}
 

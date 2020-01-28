@@ -21,6 +21,9 @@ public class FuncionarioService implements MyServiceInterface<Funcionario, Long>
 	@Override
 	public void salvar(Funcionario e) {
 		// TODO Auto-generated method stub
+		if(e.getId()!=null) {
+			e.setVersion(loadById(e.getId()).getVersion());
+		}
 		repo.saveAndFlush(e);
 	}
 

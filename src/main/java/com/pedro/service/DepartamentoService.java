@@ -19,6 +19,9 @@ public class DepartamentoService implements MyServiceInterface<Departamento, Lon
 	@Override
 	public void salvar(Departamento e) {
 		// TODO Auto-generated method stub
+		if(e.getId()!=null) {
+			e.setVersion(loadById(e.getId()).getVersion());
+		}
 		repo.save(e);
 	}
 

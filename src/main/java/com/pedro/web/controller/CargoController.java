@@ -52,10 +52,8 @@ public class CargoController {
 			attr.addFlashAttribute("success", "Cargo inserido!");
 			cargoService.salvar(cargo);
 		} else {
-			Cargo c = cargoService.loadById(cargo.getId());
-			c.reload(cargo);
 			attr.addFlashAttribute("success", "Cargo editado!");
-			cargoService.salvar(c);
+			cargoService.salvar(cargo);
 		}
 		return "redirect:/cargos/listar";
 	}

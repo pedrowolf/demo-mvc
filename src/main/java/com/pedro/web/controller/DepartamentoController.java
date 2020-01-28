@@ -54,9 +54,7 @@ public class DepartamentoController {
 		if (result.hasErrors()) {
 			return "departamento/cadastro";
 		}
-		Departamento dep = service.loadById(departamento.getId());
-		dep.reload(departamento);
-		service.salvar(dep);
+		service.salvar(departamento);
 		attr.addFlashAttribute("success", "Departamento Editado!");
 		return "redirect:/departamentos/listar";
 	}
