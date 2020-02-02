@@ -105,12 +105,5 @@ public class Funcionario extends GenericDomain<Long> {
 		this.cargo = cargo;
 	}
 
-	public void reload(Funcionario f) {
-		this.setCargo(f.getCargo());
-		this.setDataEntrada(f.getDataEntrada());
-		this.setDataSaida(f.getDataSaida());
-		this.setEndereco(f.getEndereco());
-		this.setNome(f.getNome());
-		this.setSalario(f.getSalario());
-	}
+	
 }

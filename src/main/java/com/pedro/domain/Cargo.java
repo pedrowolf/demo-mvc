@@ -55,9 +55,4 @@ public class Cargo extends GenericDomain<Long> {
 		return funcionarios;
 	}
 	
-	public void reload(Cargo c) {
-		this.setDepartamento(c.getDepartamento());
-		this.setFuncionarios(c.getFuncionarios());
-		this.setNome(c.getNome());
-	}
 }

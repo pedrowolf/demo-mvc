@@ -39,9 +39,6 @@ public class Departamento extends GenericDomain<Long> {
 		return nome;
 	}
 	
-	public void reload(Departamento dep) {
-		this.nome = dep.getNome();
-		this.cargos = dep.getCargos();
-	}
+
 }
 

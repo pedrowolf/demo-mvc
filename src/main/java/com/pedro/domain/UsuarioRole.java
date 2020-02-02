@@ -3,7 +3,6 @@ package com.pedro.domain;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 
 import org.springframework.security.core.GrantedAuthority;

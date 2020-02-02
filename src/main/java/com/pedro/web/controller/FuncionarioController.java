@@ -69,7 +69,6 @@ public class FuncionarioController {
 		if (funcionario.getId() != null) {
 			// editar
 			Funcionario tmp = funcionarioService.loadById(funcionario.getId());
-			tmp.reload(funcionario);
 			funcionarioService.salvar(tmp);
 			attr.addFlashAttribute("success", "Funcionário editado com sucesso!");
 		} else {

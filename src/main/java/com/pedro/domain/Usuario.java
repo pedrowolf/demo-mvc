@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import org.springframework.security.core.GrantedAuthority;
